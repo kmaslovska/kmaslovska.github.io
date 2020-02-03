@@ -2,11 +2,14 @@ var r, b, t;
 function setup() {
     // put setup code here
 
-    createCanvas(800, 800);
+    createCanvas(windowWidth, windowHeight);
 
     r = color(255,255,153);
     b = color(255,153,204);
     t = color(153,204, 255);
+
+    stroke(225,0,127);
+    strokeWeight(2);
 }
 
 const SHIFT = 80;
@@ -17,11 +20,13 @@ function getShift(height) {
 
 function drawSegment(baseX, baseY, height, width) {
   let shift = getShift(height) ;
+
   beginShape();
   vertex(baseX,baseY);
   vertex(baseX+shift,baseY-height);
   vertex(baseX+shift+width,baseY-height);
   vertex(baseX+width,baseY);
+  vertex(baseX,baseY);
   endShape();
 }
 
@@ -29,8 +34,8 @@ function draw() {
   var t = map(mouseX,0,width,0,1.0);
  var c = lerpColor(r,b,t);
  background(c);
- stroke(225,0,127);
- strokeWeight(2);
+
+ // strokeWeight(2);
 
 // A stick
 fill(229,204,255);
@@ -39,6 +44,7 @@ vertex(50+getShift(300/7),650);
 vertex(50+getShift(300),600);
 vertex(50+60*3,600);
 vertex(50+60+getShift(300),650);
+vertex(50+getShift(300/7),650);
 endShape();
 fill(255);
 // A back
@@ -48,6 +54,7 @@ vertex(50+getShift(300),400);
 vertex(110+getShift(300),400);
 vertex(185+60,730);
 vertex(185,730);
+vertex(50+getShift(300),400);
 endShape();
 fill(229,204,255);
 
@@ -66,6 +73,7 @@ vertex(290-shLeft+getShift(385),400);
 vertex(290-shLeft+60+getShift(385),387);
 vertex(425-shLeft+60,730);
 vertex(425-shLeft,730);
+vertex(290-shLeft+getShift(385),400);
 endShape();
 fill(153,190,255);
 
@@ -81,6 +89,7 @@ vertex(425-shLeft+getShift(300),430);
 vertex(425-shLeft+60+getShift(300),430);
 vertex(560-shLeft+60,700);
 vertex(560-shLeft,700);
+vertex(425-shLeft+getShift(300),430);
 endShape();
 fill(229,204,255);
 // M2
