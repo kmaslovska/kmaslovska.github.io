@@ -9,15 +9,10 @@ function keyPressed() {
 }
 
 function draw() {
-  for(let i=5; i<width; i+=10) {
-    if(i%0===10){
-      stroke(225);
-      line(i,180, i, height/2);
-    }
-    else {
-      stroke(170)
-      line(i, 10, i, 210);
-    }
+  let rNum = random(255);
+  for(let i=5+rNum; i<width; i+=10) {
+    stroke(random(255), random(255), random(255))
+    line(i, 0, 520, 520);
   }
 
 
@@ -27,7 +22,7 @@ function draw() {
   stroke(225);
 
   if(mouseX<250) {
-    fill(198, 134, 66);
+    fill(random(255), random(255), random(255));
   }
 
 
@@ -48,8 +43,9 @@ function draw() {
 
   //ellipse
   noStroke();
-  fill(75,0,130);
-  ellipse(mouseX,mouseY,50,50,25,25);
+  // fill(75,0,130);
+  fill(random(255), 255, random(255));
+  ellipse(mouseX,mouseY,50,50,25);
 
 
 
